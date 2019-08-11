@@ -1,8 +1,11 @@
 package util;
 
+import java.util.concurrent.locks.ReentrantLock;
+
 public class Logger {
 
     private static Logger instance = null;
+    private static ReentrantLock mutex = new ReentrantLock();
 
     /** Lazy instantiation for singleton Logger
      *
@@ -10,7 +13,14 @@ public class Logger {
      */
     public static Logger getInstance() {
         if (instance == null) {
-            instance = new Logger();
+            try {
+                mutex.lock();
+                instance = new Logger();
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                mutex.unlock();
+            }
         }
         return instance;
     }
