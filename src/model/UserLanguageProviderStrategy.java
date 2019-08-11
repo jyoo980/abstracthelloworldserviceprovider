@@ -4,11 +4,11 @@ import model.exception.UnsupportedLocaleException;
 
 import java.util.Locale;
 
-public class UserLanguageProviderService {
+public class UserLanguageProviderStrategy {
 
     private Locale userLocale;
 
-    public UserLanguageProviderService() {
+    public UserLanguageProviderStrategy() {
         String userLanguage = System.getProperty("user.language");
         String userCountry = System.getProperty("user.country");
         this.userLocale = new Locale(userLanguage, userCountry);

@@ -1,17 +1,14 @@
 package main;
 
-import model.EnglishHelloWorldService;
 import model.IHelloWorldService;
-import model.UserLanguageProviderService;
-
-import java.util.Scanner;
+import model.UserLanguageProviderStrategy;
 
 public class MainWrapper {
 
     private static Main mainInstance;
 
     public static void main(String[] args) {
-        UserLanguageProviderService userLanguage  = new UserLanguageProviderService();
+        UserLanguageProviderStrategy userLanguage  = new UserLanguageProviderStrategy();
         try {
             IHelloWorldService concreteHelloWorldService = userLanguage.getSupportedLocale();
             mainInstance = new Main(concreteHelloWorldService);

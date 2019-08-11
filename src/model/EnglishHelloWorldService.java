@@ -3,11 +3,16 @@ package model;
 public class EnglishHelloWorldService implements IHelloWorldService {
 
     private String greetingString = "Hello";
-    private String worldString = "World";
+    private String worldString = "world";
 
     @Override
     public void helloWorld() {
-        String localizedHelloWorldString = greetingString + " " + worldString + "!";
+        String localizedHelloWorldString = getHelloWorldString();
         System.out.println(localizedHelloWorldString);
+    }
+
+    @Override
+    public String getHelloWorldString() {
+        return greetingString + ", " + worldString + "!";
     }
 }

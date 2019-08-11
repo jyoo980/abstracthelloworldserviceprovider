@@ -7,7 +7,12 @@ public class ChineseHelloWorldService implements IHelloWorldService {
 
     @Override
     public void helloWorld() {
-        String localizedHelloWorldString = greetingString + " " + worldString + "!";
+        String localizedHelloWorldString = getHelloWorldString();
         System.out.println(localizedHelloWorldString);
+    }
+
+    @Override
+    public String getHelloWorldString() {
+        return greetingString + ", " + worldString + "!";
     }
 }
