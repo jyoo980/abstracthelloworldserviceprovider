@@ -14,7 +14,7 @@ public class MainWrapper {
         UserLanguageProviderService userLanguage  = new UserLanguageProviderService();
         try {
             IHelloWorldService concreteHelloWorldService = userLanguage.getSupportedLocale();
-            mainInstance = new Main(new EnglishHelloWorldService());
+            mainInstance = new Main(concreteHelloWorldService);
             mainInstance.sayHello();
         } catch (Exception e) {
             System.out.println(e.getMessage());

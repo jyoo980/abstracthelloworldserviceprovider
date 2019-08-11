@@ -21,6 +21,8 @@ public class UserLanguageProviderService {
                 return new EnglishHelloWorldService();
             case "zh":
                 return new ChineseHelloWorldService();
+            case "ko":
+                return new KoreanHelloWorldService();
             default:
                 throw new UnsupportedLocaleException(language);
         }
